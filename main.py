@@ -28,7 +28,7 @@ def main():
         clear_console()
 
 def clear_console():
-    os.system('cls')
+    os.system('clear')
 
 def loading():
     print("Loading", end="")
