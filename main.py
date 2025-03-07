@@ -27,9 +27,12 @@ def main():
 
         if option == '3':
             pass
+
         if option == '4':
-            num_task = int(input("What's the position of the task you wanna delete?"))
-            tarefa.pop[num_task]
+            num_task = int(input("What's the position of the task you wanna delete? "))
+            if num_task >= 0 and num_task < len(tasks):
+                tasks.pop(num_task)
+            else: print(f"Choose a number between 0 and {len(tasks) }")
             
         if option == '5':
             print("Exiting")
@@ -50,11 +53,3 @@ def loading():
 
 if __name__ == "__main__":
     main()
-    # lista_de_tarefas = []
-    # tarefa_1 = Task(name="Terminar o livro de python", description="Lorem sla")
-    # tarefa_2 = Task(name="Beijar meu namorada", description=": )")
-    # lista_de_tarefas.append(tarefa_1)
-    # lista_de_tarefas.append(tarefa_2)
-    
-    # for t in lista_de_tarefas:
-    #     print(t)
