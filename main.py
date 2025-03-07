@@ -9,7 +9,7 @@ def main():
         print("\n--- Task Manager ---")
         print("1. Add Task")
         print("2. List Tasks")
-        print("3. Update Task")
+        print("3. Edit Task")
         print("4. Remove Task")
         print("5. Exit")
         option = input("Choose an option: ")
@@ -26,13 +26,18 @@ def main():
                 print(t)
 
         if option == '3':
-            pass
+            ind = int(input("What's the position of the task you wanna edit? "))
+            new_name = input("What's your new task? ")
+            new_desc = input("What's your new description? ")
+            old_task = tasks[ind]
+            old_task.name = new_name
+            old_task.description = new_desc
 
         if option == '4':
             num_task = int(input("What's the position of the task you wanna delete? "))
             if num_task >= 0 and num_task < len(tasks):
                 tasks.pop(num_task)
-            else: print(f"Choose a number between 0 and {len(tasks) }")
+            else: print(f"Choose a number between 0 and {len(tasks) - 1}")
             
         if option == '5':
             print("Exiting")
