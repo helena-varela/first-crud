@@ -1,6 +1,6 @@
 import os
 import time
-
+from operations import *
 from task import Task
 
 def main():
@@ -9,35 +9,35 @@ def main():
         print("\n--- Task Manager ---")
         print("1. Add Task")
         print("2. List Tasks")
-        print("3. Edit Task")
+        print("3. Update Task")
         print("4. Remove Task")
         print("5. Exit")
         option = input("Choose an option: ")
 
+        # Crud
         if option == '1':
             add_name = input("What's your task:\n")
             add_desc = input('Describe your task:\n')
-            tarefa = Task(name = add_name,description = add_desc)
-            tasks.append(tarefa)
+            create_task(tasks, add_name, add_desc)
             print('Your task has been added!')
-
+        
+        # cRud
         if option == '2':
-            for t in tasks:
-                print(t)
-
+            read_task(tasks)
+            
+        # crUd
         if option == '3':
-            ind = int(input("What's the position of the task you wanna edit? "))
+            ind = int(input("What's the position of the task you wanna update? "))
             new_name = input("What's your new task? ")
             new_desc = input("What's your new description? ")
-            old_task = tasks[ind]
-            old_task.name = new_name
-            old_task.description = new_desc
+            update_task(tasks, ind, new_name, new_desc)
+            print('Your task has been updated!')
 
+        # cruD
         if option == '4':
             num_task = int(input("What's the position of the task you wanna delete? "))
-            if num_task >= 0 and num_task < len(tasks):
-                tasks.pop(num_task)
-            else: print(f"Choose a number between 0 and {len(tasks) - 1}")
+            delet_task(tasks, num_task)
+            print('Your task has been deleted!')
             
         if option == '5':
             print("Exiting")
