@@ -26,18 +26,25 @@ def main():
             read_task(tasks)
             
         # crUd
-        if option == '3':
-            ind = int(input("What's the position of the task you wanna update? "))
-            new_name = input("What's your new task? ")
-            new_desc = input("What's your new description? ")
-            update_task(tasks, ind, new_name, new_desc)
-            print('Your task has been updated!')
+        if option == '3': 
+            if not tasks:
+                print("You don't have tasks yet!")
+            else:
+                read_task(tasks)
+                ind = int(input("What's the position of the task you wanna update? "))
+                new_name = input("What's your new task? ")
+                new_desc = input("What's your new description? ")
+                update_task(tasks, ind, new_name, new_desc)
+                print('Your task has been updated!')
 
         # cruD
         if option == '4':
-            num_task = int(input("What's the position of the task you wanna delete? "))
-            delet_task(tasks, num_task)
-            print('Your task has been deleted!')
+            if not tasks:
+                print("You don't have tasks yet!")
+            else:
+                num_task = int(input("What's the position of the task you wanna delete? "))
+                delet_task(tasks, num_task)
+                print('Your task has been deleted!')
             
         if option == '5':
             print("Exiting")

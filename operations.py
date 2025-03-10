@@ -8,8 +8,10 @@ def read_task(tasks):
     if not tasks:
         print("You don't have tasks yet!")
     else: 
+        tar = 0
         for t in tasks:
-            print(t) 
+            print(f"{str(tar)}. {str(t)}")
+            tar += 1
 
 def update_task(tasks, ind, new_name, new_desc):
     old_task = tasks[ind]
@@ -17,6 +19,6 @@ def update_task(tasks, ind, new_name, new_desc):
     old_task.description = new_desc
 
 def delet_task(tasks, num_task):
-    if num_task >= 0 and num_task < len(tasks):
+    if num_task >= 0 and num_task < len(tasks): # ajeitar o IndexError out of range
         tasks.pop(num_task)
-    else: print(f"Choose a number between 0 and {len(tasks) - 1}") 
+    else: print(f"Choose a number between 0 and {len(tasks) - 1}")
