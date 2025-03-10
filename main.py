@@ -32,19 +32,26 @@ def main():
             else:
                 read_task(tasks)
                 ind = int(input("What's the position of the task you wanna update? "))
-                new_name = input("What's your new task? ")
-                new_desc = input("What's your new description? ")
-                update_task(tasks, ind, new_name, new_desc)
-                print('Your task has been updated!')
+                if ind >= 0 and ind < len(tasks):
+                    new_name = input("What's your new task? ")
+                    new_desc = input("What's your new description? ")
+                    update_task(tasks, ind, new_name, new_desc)
+                    print('Your task has been updated!')
+                else: 
+                    print(f"Choose a number between 0 and {len(tasks) - 1}")
 
         # cruD
         if option == '4':
             if not tasks:
                 print("You don't have tasks yet!")
             else:
+                read_task(tasks)
                 num_task = int(input("What's the position of the task you wanna delete? "))
-                delet_task(tasks, num_task)
-                print('Your task has been deleted!')
+                if num_task >= 0 and num_task < len(tasks):
+                    delet_task(tasks, num_task)
+                    print('Your task has been deleted!')
+                else: 
+                    print(f"Choose a number between 0 and {len(tasks) - 1}")
             
         if option == '5':
             print("Exiting")
@@ -59,9 +66,9 @@ def clear_console():
 def loading():
     print("Loading", end="")
     for _ in range(3):
-        print(".", end="", flush=True)  # flush ensures the dot is printed immediately
+        print(".", end="", flush=True) 
         time.sleep(1)
-    print()  # new line
+    print()
 
 if __name__ == "__main__":
     main()
