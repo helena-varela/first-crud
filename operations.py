@@ -18,6 +18,5 @@ def update_task(tasks, ind, new_name, new_desc):
     old_task.name = new_name
     old_task.description = new_desc
 
-def delet_task(tasks, num_task):
-     # ajeitar o IndexError out of range
+def delete_task(tasks, num_task):
     tasks.pop(num_task)
