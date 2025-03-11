@@ -1,7 +1,7 @@
 import os
 import time
 from operations import *
-from task import Task
+from models import Task
 
 def main():
     tasks = []

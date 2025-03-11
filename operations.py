@@ -1,4 +1,4 @@
-from task import Task
+from models import Task
 
 def create_task(tasks, add_name, add_desc):
     tarefa = Task(name = add_name,description = add_desc)
