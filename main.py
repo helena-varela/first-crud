@@ -31,14 +31,17 @@ def main():
                 print("You don't have tasks yet!")
             else:
                 read_task(tasks)
-                ind = int(input("Which the position of the task you want to update? "))
-                if ind >= 0 and ind < len(tasks):
-                    new_name = input("What's your new task? ")
-                    new_desc = input("What's your new description? ")
-                    update_task(tasks, ind, new_name, new_desc)
-                    print('Your task has been updated!')
-                else: 
-                    print(f"Choose a number between 0 and {len(tasks) - 1}")
+                try:
+                    ind = int(input("Which is the position of the task you want to update? "))
+                    if ind >= 0 and ind < len(tasks):
+                        new_name = input("What's your new task? ")
+                        new_desc = input("What's your new description? ")
+                        update_task(tasks, ind, new_name, new_desc)
+                        print('Your task has been updated!')
+                    else: 
+                        print(f"Choose a number between 0 and {len(tasks) - 1}")
+                except ValueError:
+                    print("Enter a number, please.")
 
         # cruD
         if option == '4':
@@ -46,12 +49,15 @@ def main():
                 print("You don't have tasks yet!")
             else:
                 read_task(tasks)
-                num_task = int(input("Which the position of the task you want to delete? "))
-                if num_task >= 0 and num_task < len(tasks):
-                    delete_task(tasks, num_task)
-                    print('Your task has been deleted!')
-                else: 
-                    print(f"Choose a number between 0 and {len(tasks) - 1}")
+                try:
+                    num_task = int(input("Which is the position of the task you want to delete? "))
+                    if num_task >= 0 and num_task < len(tasks):
+                        delete_task(tasks, num_task)
+                        print('Your task has been deleted!')
+                    else: 
+                        print(f"Choose a number between 0 and {len(tasks) - 1}")
+                except ValueError:
+                    print("Enter a number, please.")
             
         if option == '5':
             print("Exiting")
