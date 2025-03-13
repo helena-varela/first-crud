@@ -1,3 +1,4 @@
+import json
 import os
 import time
 from operations import *
@@ -16,7 +17,26 @@ def main():
 
         # Crud
         if option == '1':
-            pass
+            def create_task():
+                name_task = input("What's the name of your task? ")
+                desc_task = input("What's the description of your task? ")
+                
+                dic = { "name": name_task,
+                       "description" : desc_task
+                    }
+                
+                try:
+                    with open("tasks.json","r") as file: # abre o tasks.json no modo leitura
+                        tasks = json.load(file) # armazena na variavel tasks o json
+                except (FileNotFoundError, json.JSONDecodeError): # se o json nao existir ou for corrompido
+                    tasks = [] # tasks é inicializada como uma lista vazia
+                tasks.append(dic) # adiciona dic à tasks
+
+                with open("tasks.json","w") as file: # abre o arquivo no modo escrita 
+                        json.dump(tasks, file, indent = 4)
+
+                print("Your task has been added!")
+            create_task()
         
         # cRud
         if option == '2':
