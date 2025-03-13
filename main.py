@@ -17,7 +17,7 @@ def main():
 
         # Crud
         if option == '1':
-            def create_task():
+            def create_tasks():
                 name_task = input("What's the name of your task? ")
                 desc_task = input("What's the description of your task? ")
                 
@@ -36,11 +36,19 @@ def main():
                         json.dump(tasks, file, indent = 4)
 
                 print("Your task has been added!")
-            create_task()
+            create_tasks() 
         
         # cRud
         if option == '2':
-            read_task(tasks)
+            def read_tasks():
+                try:
+                    with open("tasks.json", "r") as file:
+                        tasks = json.load(file)
+                except (FileNotFoundError, json.JSONDecodeError):
+                    print("You don't have tasks yet.")
+                for t in tasks:
+                    print(f"{t['name']}: {t['description']}")
+            read_tasks()
             
         # crUd
         if option == '3': 
