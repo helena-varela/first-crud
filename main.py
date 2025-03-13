@@ -45,9 +45,12 @@ def main():
                         tasks = json.load(file)
                 except (FileNotFoundError, json.JSONDecodeError):
                     print("You don't have tasks yet.")
-        
+
+                index = 0
                 for t in tasks:
-                    print(f"{t['name']}: {t['description']}")
+                    print(f"{str(index)}. {t['name']}: {t['description']}")
+                    index += 1
+
             read_tasks(tasks)
             
         # crUd
