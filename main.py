@@ -16,10 +16,7 @@ def main():
 
         # Crud
         if option == '1':
-            add_name = input("What's your task:\n")
-            add_desc = input('Describe your task:\n')
-            create_task(tasks, add_name, add_desc)
-            print('Your task has been added!')
+            pass
         
         # cRud
         if option == '2':
